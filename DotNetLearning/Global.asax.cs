@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-
+//added
+using System.Data.Entity;
 namespace DotNetLearning
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -14,6 +15,8 @@ namespace DotNetLearning
     {
         protected void Application_Start()
         {
+            //important
+          //  Database.SetInitializer<DotNetLearning.Models.EmployeeContext>(null);
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
