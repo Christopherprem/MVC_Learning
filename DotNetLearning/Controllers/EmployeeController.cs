@@ -12,19 +12,45 @@ namespace DotNetLearning.Controllers
         //
         // GET: /Employee/
 
+
+        public ActionResult Index( )
+        {
+            testEntities Dbcontext = new testEntities();
+            List<Employee> Emp = Dbcontext.Employees.ToList();
+            return View(Emp);
+        }
+
+
         public ActionResult Details(int ID)
         {
-            //employee emp = new employee();
-            //emp.EmpID = 1;
-            //emp.Name = "prem";
-            //emp.Gender = "Male";
-            //emp.City = "Chennai";
 
-          //  EmployeeContext empCtx = new EmployeeContext();
-            
-            var context = new test2Entities();
-            Employee employee = context.Employees.Single(emp => emp.EmpID == ID);
+           // var context = new test2Entities();
+            testEntities Dbcontext = new testEntities();
+
+            Employee employee = Dbcontext.Employees.Single(emp => emp.EmpID == ID);
             return View(employee);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+         [HttpPost]
+        public ActionResult Create(Employee employee)
+        {
+
+            if (ModelState.IsValid)
+            {
+                testEntities Dbcontext = new testEntities();
+
+                Dbcontext.Employees.Add(employee);
+                Dbcontext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿@using DotNetLearning.Models
+@model IEnumerable<DotNetLearning.Models.Country>
+
+@{
+    ViewBag.Title = "Country Index";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (Country cont in @Model) { 
+
+   <li>@cont.Country_Name </li>
+}

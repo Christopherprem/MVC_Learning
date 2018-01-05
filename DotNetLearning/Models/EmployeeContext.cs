@@ -8,8 +8,9 @@ using System.Data.Entity;
 
 namespace DotNetLearning.Models
 {
-    public class EmployeeContext : test2Entities
+    public class EmployeeContext : testEntities
     {
       //  public DbSet<employee> Employees { get; set; }
+        // model classes which are not used
     }
 }

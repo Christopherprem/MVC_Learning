@@ -1,0 +1,39 @@
+﻿@using DotNetLearning.Models
+@model IEnumerable<DotNetLearning.Models.Employee>
+
+@{
+    ViewBag.Title = " Employee - Index";
+}
+
+<h2>@ViewBag.Title </h2>
+<table>
+    <tr><td>ID</td>
+        <td>Name</td>
+        <td>Gender</td>
+        <td>City</td>
+    </tr>
+
+        @foreach (Employee emp in @Model)
+        {
+            <tr>
+                <td>
+                    @emp.EmpID
+                </td>
+                <td>
+                    @emp.Name
+                </td>
+                <td>
+                    @emp.Gender
+                </td>
+                <td>
+                    @emp.City
+                </td>
+
+            </tr>
+        }
+           
+
+</table>
+
+<br />
+@Html.ActionLink("Create", "Create", "Employee")
