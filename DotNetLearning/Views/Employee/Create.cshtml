@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-<form method="post" action="create">
+<form method="post" action="Add">
     <table>
         <tr>
             <td>Name</td>
@@ -16,20 +16,20 @@
         <tr>
             <td>Gender</td>
             <td>
-                
+
                 @Html.DropDownList("Gender", new List<SelectListItem>
                 {
                 new SelectListItem { Text = "Male", Value="Male" },
                 new SelectListItem { Text = "Female", Value="Female" }
                 }, "Select Gender")
-            
+
             </td>
         </tr>
 
         <tr>
             <td>City</td>
             <td>@Html.EditorFor(model => model.City) </td>
-        
+
         </tr>
 
         <tr>

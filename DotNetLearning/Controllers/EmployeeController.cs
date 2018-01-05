@@ -32,13 +32,15 @@ namespace DotNetLearning.Controllers
         }
 
         [HttpGet]
+        [ActionName("Create")]
         public ActionResult Create()
         {
             return View();
         }
 
          [HttpPost]
-        public ActionResult Create(Employee employee)
+         [ActionName("Add_new")]
+        public ActionResult Create_new(Employee employee)
         {
 
             if (ModelState.IsValid)
@@ -52,5 +54,26 @@ namespace DotNetLearning.Controllers
 
             return View();
         }
+
+
+         [HttpPost]
+         [ActionName("Add")]
+         public ActionResult Create_add()
+         {
+             Employee employee = new Employee();
+
+            // UpdateModel(employee);
+             TryUpdateModel(employee);
+             if (ModelState.IsValid)
+             {
+                 testEntities Dbcontext = new testEntities();
+
+                 Dbcontext.Employees.Add(employee);
+                 Dbcontext.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+
+             return View();
+         }
     }
 }
